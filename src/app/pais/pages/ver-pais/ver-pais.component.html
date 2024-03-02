@@ -1,0 +1,60 @@
+<div class="container">
+  <div *ngIf="!pais; else divPais" class="alert alert-info">
+    Loading.......
+  </div>
+
+
+  <ng-template #divPais>
+    <div class="row">
+      <div class="col-12">
+        <h1>Pais: <small class="fw-light">{{ pais[0].name.common }}</small></h1>
+      </div>
+    </div>
+    <div class="row">
+
+      <div class="col-4">
+        <h3>Bandera</h3>
+        <img [src]="pais[0].flags.png" class="img-thumbnail" alt="bandera del pais">
+      </div>
+      <div class="col">
+        <h3>Informacion: </h3>
+        <ul class="list-group">
+          <li class="list-group-item">
+            <strong>Población: </strong> {{ pais[0].population | number}}
+          </li>
+          <li class="list-group-item">
+            <strong>Codigo postal: </strong> {{ pais[0].postalCode.regex}}
+          </li>
+          <li class="list-group-item">
+            <strong>Area: </strong> {{ pais[0].area | number}}
+          </li>
+          <li class="list-group-item">
+            <strong>codfigo pais 1: </strong> {{ pais[0].ccn3 | number}}
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <h3>Traducciones</h3>
+    <div class="row">
+      <div class="col">
+        <span class="badge bg-primary mx-1">{{ pais[0].translations['ara'].official }}</span>
+        <span class="badge bg-primary mx-1">{{ pais[0].translations['bre'].official }}</span>
+        <span class="badge bg-primary mx-1">{{ pais[0].translations['cym'].official }}</span>
+        <span class="badge bg-primary mx-1">{{ pais[0].translations['deu'].official }}</span>
+        <span class="badge bg-primary mx-1">{{ pais[0].translations['est'].official }}</span>
+        <span class="badge bg-primary mx-1">{{ pais[0].translations['jpn'].official }}</span>
+        <span class="badge bg-primary mx-1">{{ pais[0].translations['kor'].official }}</span>
+        <span class="badge bg-primary mx-1">{{ pais[0].translations['zho'].official }}</span>
+        <span class="badge bg-primary mx-1">{{ pais[0].translations['rus'].official }}</span>
+      </div>
+    </div>
+
+
+    <!-- <pre class="mt-5">
+        {{ pais | json}}
+    </pre> -->
+
+  </ng-template>
+</div>
+

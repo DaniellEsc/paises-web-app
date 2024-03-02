@@ -1,1 +1,25 @@
 /* You can add global styles to this file, and also import other style files */
+body {
+  background: linear-gradient(to top, rgba(20, 44, 68, 0.7), transparent 70%);
+  display: flex;
+  flex-direction: column;
+  justify-content: stretch;
+  align-items: stretch;
+  min-height: 100vh;
+}
+
+.gradient-input {
+  background: linear-gradient(to right, rgba(20, 44, 68, 0), rgba(40, 60, 80, 0.1));
+  color: white;
+  padding: 10px;
+}
+
+.small-flag {
+  width: 50px;
+}
+
+.medium-flag {
+  height: 100px;
+  width: 100px;
+}
+

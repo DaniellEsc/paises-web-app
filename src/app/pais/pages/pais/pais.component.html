@@ -1,0 +1,57 @@
+<div class="container animate__animated animate__fadeIn animate__faster">
+
+  <h2 class="fw-light mt-4"> Paises busqueda</h2>
+  <hr class="col-4">
+
+  <div class="row">
+    <div class="col-4">
+      <app-pais-input (onEnter)="buscar( $event )" (onDebounce)="sugerencias( $event)" placeholder="Buscar País">
+      </app-pais-input>
+
+      <ul *ngIf="mostrarSugerencias" class="list-group">
+        <li *ngFor="let pais of paisesSugeridos" class="list-group-item list-group-item-action">
+          <a class="nav-link" [routerLink]="['/pais', pais.cca2]">
+            {{pais.name.common}}
+          </a>
+        </li>
+        <li class="list-group-item list-group-item-action">
+          <a class="nav-link" (click)="buscarSuguerido(termino)">
+            Bucar {{termino}}
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <hr>
+
+  <div *ngIf="hayError" class="alert alert-danger">
+    No se encontro {{termino}}
+  </div>
+
+  <div *ngIf="paises.length > 0" class="row">
+    <div class="col">
+      <app-pais-tabla [paises]="paises"></app-pais-tabla>
+    </div>
+  </div>
+</div>
+
+
+<div class="container">
+  <div class="row" *ngIf="mostrarPaisesAll">
+    <div class="col mt-4" *ngFor="let pais of paisesAll">
+      <div class="card border-0">
+        <div class=" h-100 w-100"><img class="card-img-top medium-flag" [src]="pais.flags.png" alt="banderas" style="background: rgb(33, 76, 131);"></div>
+        <a [routerLink]="['/pais/', pais.cca2]" class="btn btn-primary position-absolute top-0 start-0 p-1" data-mdb-ripple-init>
+          <i class="fas fa-eye fa-lg pe-2" style="color: #fcfcfc;"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
